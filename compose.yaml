@@ -1,0 +1,10 @@
+services:
+  wasmforge:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      RUST_LOG: wasmforge_server=info,tower_http=info
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp"]

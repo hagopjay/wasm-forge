@@ -1,0 +1,2 @@
+/// <reference types="vite/client" />
+declare module '/pkg/wasmforge_engine.js' { const init:(input?:unknown)=>Promise<unknown>; export default init; export function analyze_text(s:string):string; export function monte_carlo_pi(n:number,seed:number):string; export function process_signal(a:Float64Array,s:number):Float64Array; export function generate_terrain(w:number,h:number,s:number):Uint8Array; export function sort_f64(a:Float64Array):Float64Array; export function engine_manifest():string; }

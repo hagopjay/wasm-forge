@@ -1,0 +1,13 @@
+package wasmforge:analytics@0.1.0;
+
+interface telemetry {
+  record metric { name: string, value: float64, unit: string }
+  emit: func(event: metric) -> result<_, string>;
+}
+interface transform {
+  process: async func(input: stream<u8>) -> result<stream<u8>, string>;
+}
+world analytics-plugin {
+  import telemetry;
+  export transform;
+}

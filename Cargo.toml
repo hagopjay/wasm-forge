@@ -1,0 +1,21 @@
+[workspace]
+members = ["crates/engine", "apps/server"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["WasmForge contributors"]
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = "s"
+panic = "abort"
+strip = "symbols"
+
+[profile.server-release]
+inherits = "release"
+opt-level = 3
+strip = "symbols"
